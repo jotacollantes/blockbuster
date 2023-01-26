@@ -7,7 +7,7 @@ Swal.fire({
     icon: 'error',
     title: 'Oops...',
     text: 'Error al conectarse al servidor ',
-    footer: '<a href="http://localhost:5173/">Intente nuevamente</a>'
+    footer: '<a href="https://blockbuster-ten.vercel.app/">Intente nuevamente</a>'
   })
 }
 
