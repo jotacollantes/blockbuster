@@ -5,13 +5,13 @@ export const BlockBusterRoutes = () => {
   return (
     <Routes>
       {/* Todas estas rutas son hijas de la ruta raiz / definida en la ruta padre dentro de AppRouter */}
-      <Route path="/" element={<Home />} />
-      <Route path="/movie" element={<Movie />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/movie" element={<Movie/>} />
+      <Route path="/cart" element={<Cart/>} />
       <Route path="/confirmation" element={<Confirmation />} />
-      <Route path="/emptycart" element={<EmptyCart />} />
+      <Route path="/emptycart" element={<EmptyCart/>} />
 
-      <Route path="/*" element={<Navigate to="/" />} />
+      <Route path="/*" element={<Navigate to="/"/>} />
     </Routes>
   );
 };

@@ -18,14 +18,14 @@ import { CartContext } from "../context/cart";
 
 export const Cart = () => {
 
-  const { cart} = useContext(CartContext);
+  const { isLoaded,cart} = useContext(CartContext);
   const  navigate = useNavigate();
 
   useEffect(() => {
-    if ( cart.length === 0 ){
+    if (  cart.length === 0 ){
       navigate("/emptycart")
     }
-  }, [])
+  }, [cart])
 
   return (
     <BlockBusterLayout>
