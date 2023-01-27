@@ -22,10 +22,10 @@ export const Cart = () => {
   const  navigate = useNavigate();
 
   useEffect(() => {
-    if (isLoaded && cart.length === 0 ){
+    if (cart.length === 0 ){
       navigate("/emptycart")
     }
-  }, [isLoaded,navigate,cart])
+  }, [cart])
 
   return (
     <BlockBusterLayout>
