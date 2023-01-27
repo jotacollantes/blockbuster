@@ -15,7 +15,7 @@ import {
 import { ICartMovie, IMovie } from "../interfaces";
 import { ItemCounter, Modalidad } from "../components/movies";
 import { BlockBusterLayout } from "../components/layouts";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/cart";
 
 export const Movie = () => {
@@ -37,8 +37,8 @@ export const Movie = () => {
     imdbid: movie.imdbID,
     quantity: 1,
     image: movie.Poster,
-    modalidad:'venta',
-    fechaEntrega:''
+    modalidad: "venta",
+    fechaEntrega: "",
   });
 
   const onUpdateQuantity = (quantity: number) => {
@@ -49,23 +49,21 @@ export const Movie = () => {
     });
   };
 
+  const onUpdateModalidad = (modalidad: string) => {
+    //console.log("Modalidad",value)
+    setTempCartMovie({
+      ...tempCartMovie,
+      modalidad: modalidad,
+      fechaEntrega: "",
+    });
+  };
 
-const onUpdateModalidad =(modalidad:string)=>{
- //console.log("Modalidad",value)
-  setTempCartMovie({
-    ...tempCartMovie,
-    modalidad: modalidad,
-    fechaEntrega:''
-  });
-}
-
-const onUpdateFechaEntrega=(value:string)=>{
-  setTempCartMovie({
-    ...tempCartMovie,
-    fechaEntrega:value,
-  });
-
-}
+  const onUpdateFechaEntrega = (value: string) => {
+    setTempCartMovie({
+      ...tempCartMovie,
+      fechaEntrega: value,
+    });
+  };
 
   const addMovieCart = () => {
     //!Llamar a la accion del context para agregar al carrito
@@ -102,7 +100,7 @@ const onUpdateFechaEntrega=(value:string)=>{
               IMDB ID:
               {movie.imdbID}
             </Typography>
-           
+
             <Box sx={{ my: 2 }}>
               {/* Item Counter */}
               <ItemCounter
@@ -113,7 +111,10 @@ const onUpdateFechaEntrega=(value:string)=>{
             </Box>
             <Box sx={{ my: 1 }}>
               {/* Modalidad */}
-              <Modalidad modalidad={onUpdateModalidad} fechaEntrega={onUpdateFechaEntrega} />
+              <Modalidad
+                modalidad={onUpdateModalidad}
+                fechaEntrega={onUpdateFechaEntrega}
+              />
             </Box>
 
             <Button
@@ -123,6 +124,24 @@ const onUpdateFechaEntrega=(value:string)=>{
             >
               Agregar al Carrito
             </Button>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={7} border={0}>
+          <Box
+            display={"flex"}
+            justifyContent="center"
+            alignItems="center"
+            flexDirection={"column"}
+          >
+            <NavLink to="/">
+              <Typography
+                sx={{ mb: 5, fontSize: 20, fontWeight: 600 }}
+                variant="button"
+              >
+                {/* <Typography sx={{mb:5}} variant='button' fontWeight={600} fontSize={20}> */}
+                Regresar
+              </Typography>
+            </NavLink>
           </Box>
         </Grid>
       </Grid>
