@@ -1,5 +1,6 @@
 import { Box, CircularProgress, Typography } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import { BlockBusterLayout } from '../components/layouts'
 import { CartContext } from '../context/cart';
 
@@ -46,6 +47,11 @@ export const Confirmation = () => {
                 
                 >
                 <Typography sx={{mb:5}} variant='h2' fontWeight={200} fontSize={20}>Su orden ha sido Procesada.</Typography>
+                <NavLink to="/">
+                  <Typography sx={{mb:5}} variant='h2' fontWeight={200} fontSize={20}>Regresar
+                </Typography>
+                </NavLink>
+                
                 
                 
                   </Box>)
