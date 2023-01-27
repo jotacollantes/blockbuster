@@ -18,10 +18,13 @@ export const cartReducer = (
       for (const movie of action.payload) {
         countItems = countItems + movie.quantity;
       }
+
+      const isLoaded= action.payload.length===0 ? false : true
+      
       return {
         ...state,
         //cart: action.payload,
-        isLoaded: true,
+        isLoaded: isLoaded,
         cart: [...action.payload],
         numberOfItems: countItems,
       };
