@@ -19,12 +19,12 @@ export const cartReducer = (
         countItems = countItems + movie.quantity;
       }
 
-      const isLoaded= action.payload.length===0 ? false : true
+      // const isLoaded= action.payload.length===0 ? false : true
       
       return {
         ...state,
         //cart: action.payload,
-        isLoaded: isLoaded,
+        isLoaded: true,
         cart: [...action.payload],
         numberOfItems: countItems,
       };
