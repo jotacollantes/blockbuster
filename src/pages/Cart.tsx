@@ -22,7 +22,7 @@ export const Cart = () => {
   const  navigate = useNavigate();
 
   useEffect(() => {
-    if ( isLoaded && cart.length === 0 ){
+    if ( !isLoaded && cart.length === 0 ){
       navigate("/emptycart")
     }
   }, [isLoaded,cart])
